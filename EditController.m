@@ -13,7 +13,7 @@
 @end
 
 @implementation EditController
-@synthesize film;
+@synthesize film, pickerController, filmImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,10 +27,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    pickerController = [[UIImagePickerController alloc] init];
+    pickerController.allowsImageEditing = NO;
+    pickerController.delegate = self;
+    pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
     (film.titile)?self.editTitle.text = film.titile:nil;
     (film.year)?self.editYear.text = film.year:nil;
     (film.descriptionfilm)?self.editDescription.text = film.descriptionfilm:nil;
     (film.genre)?self.editGenre.text = film.genre:nil;
+    [self.editFilmImage setHidden:NO];
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField
@@ -96,4 +102,17 @@
     [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)editImage:(id)sender
+{
+    [self presentModalViewController:pickerController animated:YES];
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self dismissModalViewControllerAnimated:YES];
+    filmImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    self.editFilmImage.image = filmImage;
+}
+
 @end

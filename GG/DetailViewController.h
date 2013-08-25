@@ -15,8 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *filmYear;
 @property (weak, nonatomic) IBOutlet UILabel *filmGenre;
-@property (weak, nonatomic) IBOutlet UIImageView *filmImage;
 @property (weak, nonatomic) IBOutlet UITextView *filmDescription;
+@property (weak, nonatomic) IBOutlet UIImageView *filmImage;
 
 
 

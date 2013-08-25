@@ -150,7 +150,7 @@
                     <connections>
                         <outlet property="filmDescription" destination="GX7-8V-GaA" id="8g1-fB-Pfa"/>
                         <outlet property="filmGenre" destination="jnE-2j-xMw" id="dfT-vH-o0f"/>
-                        <outlet property="filmImage" destination="AGW-Yj-z3A" id="r84-Hk-AE5"/>
+                        <outlet property="filmImage" destination="AGW-Yj-z3A" id="zG8-su-UTe"/>
                         <outlet property="filmYear" destination="keP-BU-olC" id="iRn-iC-wku"/>
                     </connections>
                 </viewController>
@@ -202,8 +202,8 @@
                                     <outlet property="delegate" destination="Lgl-zW-Xcn" id="scO-lq-Onj"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="kDC-0z-Hux">
-                                <rect key="frame" x="85" y="138" width="150" height="150"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="kDC-0z-Hux">
+                                <rect key="frame" x="80" y="134" width="155" height="154"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Описание" id="uxY-dA-Cxe">
@@ -225,13 +225,30 @@
                                     <outlet property="delegate" destination="Lgl-zW-Xcn" id="5Tj-Tb-IQ0"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y7p-0s-6fq">
+                                <rect key="frame" x="80" y="134" width="155" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editImage:" destination="Lgl-zW-Xcn" eventType="touchUpInside" id="Rar-V3-ce6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="editDescription" destination="uxY-dA-Cxe" id="kGC-IA-dDg"/>
+                        <outlet property="editFilmImage" destination="kDC-0z-Hux" id="s9V-fK-l9X"/>
                         <outlet property="editGenre" destination="GJe-5D-nGf" id="Rbr-kn-hFq"/>
-                        <outlet property="editImage" destination="kDC-0z-Hux" id="WCe-1M-aJA"/>
+                        <outlet property="editImageButton" destination="y7p-0s-6fq" id="xNi-uw-nnC"/>
                         <outlet property="editTitle" destination="9S1-q3-dj4" id="kor-ZA-Jyq"/>
                         <outlet property="editYear" destination="g9s-85-N4B" id="CJG-6z-9JW"/>
                     </connections>
@@ -409,6 +426,7 @@
     <resources>
         <image name="28-star.png" width="26" height="26"/>
         <image name="43-film-roll.png" width="26" height="22"/>
+        <image name="Default.png" width="320" height="480"/>
     </resources>
     <classes>
         <class className="AddViewController" superclassName="UIViewController">
@@ -431,10 +449,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditController.h"/>
             <relationships>
                 <relationship kind="action" name="cancelEditView:"/>
+                <relationship kind="action" name="editImage:"/>
                 <relationship kind="action" name="saveEditing:"/>
                 <relationship kind="outlet" name="editDescription" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="editFilmImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="editGenre" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="editImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="editImageButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="editTitle" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="editYear" candidateClass="UITextField"/>
             </relationships>

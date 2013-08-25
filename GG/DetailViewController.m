@@ -43,6 +43,7 @@
     self.title = self.filmDetail.titile;
     self.filmGenre.text = self.filmDetail.genre;
     self.filmYear.text = self.filmDetail.year;
+    self.filmDescription.text = self.filmDetail.descriptionfilm;
     
 	
 }
@@ -54,6 +55,7 @@
         self.title = self.filmDetail.titile;
         self.filmGenre.text = self.filmDetail.genre;
         self.filmYear.text = self.filmDetail.year;
+        self.filmDescription.text = self.filmDetail.descriptionfilm;
     }
 }
 
