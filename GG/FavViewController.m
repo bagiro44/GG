@@ -23,25 +23,30 @@
     if (self) {
         // Custom initialization
     }
-    NSLog(@"init");
+    //NSLog(@"init");
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateLeftTable"
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(checkRes:) name:@"updateLeftTable" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateLeftTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkRes:) name:@"updateLeftTable"
+    object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateRightTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkRes:) name:@"updateRightTable"
+                                               object:nil];
 }
 
 -(void)checkRes:(NSNotification *)notification
 {
     if ([[notification name] isEqualToString:@"updateLeftTable"])
     {
-        NSLog(@"checkRes");
-        film = [[DBClient sharedInstance] selectFilmFavorite:YES];
+        [self.tableView reloadData];
+    }
+    if ([[notification name] isEqualToString:@"updateRightTable"])
+    {
+        film = [[[DBClient sharedInstance] selectFilmFavorite:YES] mutableCopy];
         [self.tableView reloadData];
     }
 }
@@ -85,10 +90,40 @@
     
 }
 
+- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;
+    if([tableView isEqual:self.tableView])
+    {
+        result = UITableViewCellEditingStyleDelete;
+    }
+    return result;
+}
+
+- (void) setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:animated];
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        if (indexPath.row < [self.film count])
+        {
+            NSLog(@"%@", film.description);
+            [[DBClient sharedInstance] deleteFilm:[film objectAtIndex:indexPath.row]];
+            [self.film removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        }
+    }
+}
 
 - (void) refreshData
+
 {
-    film = [[DBClient sharedInstance] selectFilmFavorite:YES];
+    film = [[[DBClient sharedInstance] selectFilmFavorite:YES] mutableCopy];
     [self.tableView reloadData];
 }
 
@@ -105,7 +140,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"mainToDetail"])
+    if ([[segue identifier] isEqualToString:@"favoritesToDetail"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [segue.destinationViewController setFilmDetail:[film objectAtIndex:indexPath.row]];

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Films.h"
-#import "DetailViewController.h";
+#import "DetailViewController.h"
+#import "DBClient.h"
 
 @interface EditController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *editTitle;

@@ -65,8 +65,6 @@
 
 - (IBAction)cancelEditView:(id)sender
 {
-    NSLog(@"hello");
-    
     [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -74,10 +72,28 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [segue.destinationViewController setFilmDetail:film];
+    if(![[DBClient sharedInstance] insertToDB:film])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Не удалось добавить фильм в избранное..." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertView show];
+    }
+    
 }
 
 - (IBAction)saveEditing:(id)sender
 {
-    
+    //[segue.destinationViewController setFilmDetail:film];
+    film.titile = self.editTitle.text;
+    film.year = self.editYear.text;
+    film.genre = self.editGenre.text;
+    film.descriptionfilm = self.editDescription.text;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateDetail" object:self];
+    if(![[DBClient sharedInstance] insertToDB:film])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Не удалось добавить фильм в избранное..." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertView show];
+    }
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 @end

@@ -41,14 +41,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OpT-0V-wu8">
-                                                    <rect key="frame" x="20" y="9" width="280" height="21"/>
+                                                    <rect key="frame" x="23.5" y="9" width="273" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0tH-Cn-GNI">
-                                                    <rect key="frame" x="10" y="38" width="154" height="21"/>
+                                                    <rect key="frame" x="95" y="38" width="83" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -143,7 +143,7 @@
                     <navigationItem key="navigationItem" title="Детали" id="4Zh-gg-zRB">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="NLq-I1-0qU">
                             <connections>
-                                <segue destination="Lgl-zW-Xcn" kind="modal" id="h3N-fD-0I5"/>
+                                <segue destination="Lgl-zW-Xcn" kind="modal" identifier="detailToEdit" id="h3N-fD-0I5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -238,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9q2-6U-p6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2225" y="8"/>
+            <point key="canvasLocation" x="2201" y="-36"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8OB-NI-bUg">
@@ -296,14 +296,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B53-Wc-6Dd">
-                                                    <rect key="frame" x="20" y="9" width="280" height="21"/>
+                                                    <rect key="frame" x="23.5" y="9" width="273" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yfa-2t-ADK">
-                                                    <rect key="frame" x="20" y="38" width="42" height="21"/>
+                                                    <rect key="frame" x="94.5" y="38" width="83" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -331,7 +331,7 @@
                                             <outlet property="FilmTitle" destination="B53-Wc-6Dd" id="EBK-tg-Tdc"/>
                                             <outlet property="FilmYear" destination="Yfa-2t-ADK" id="fVA-Rr-euJ"/>
                                             <outlet property="favButton" destination="oad-HQ-6Z1" id="QOQ-l5-6o5"/>
-                                            <segue destination="nUX-Z7-xey" kind="push" id="ndr-at-uGZ"/>
+                                            <segue destination="nUX-Z7-xey" kind="push" identifier="favoritesToDetail" id="ndr-at-uGZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -467,8 +467,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mio-II-tt9"/>
-        <segue reference="pzI-FD-wcZ"/>
-        <segue reference="BoW-Go-IEu"/>
+        <segue reference="mE8-hS-LJc"/>
+        <segue reference="ndr-at-uGZ"/>
+        <segue reference="h3N-fD-0I5"/>
     </inferredMetricsTieBreakers>
 </document>

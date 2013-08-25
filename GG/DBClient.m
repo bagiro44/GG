@@ -86,6 +86,23 @@
 
 }
 
+- (BOOL *) insertFavoriteToDB:(Films *)Film
+{
+    
+    NSError *error;
+    if ([self.ManagedObjectContext save:&error])
+    {
+        NSLog(@"Succesfull add");
+        [self refreshData];
+        return YES;
+    } else
+    {
+        NSLog(@"Not succesfull add");
+        return NO;
+    }
+    
+}
+
 - (Films *) addNewFilmWIthTitle:(NSString *)title
 {
     Films *filmToAdd = [NSEntityDescription insertNewObjectForEntityForName:@"Films" inManagedObjectContext:self.ManagedObjectContext];
@@ -125,6 +142,12 @@
 - (BOOL *) reloadData
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"updateLeftTable" object:self];
+    return YES;
+}
+
+- (BOOL *) refreshData
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateRightTable" object:self];
     return YES;
 }
 

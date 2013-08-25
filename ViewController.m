@@ -32,8 +32,8 @@
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateLeftTable" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkRes:) name:@"updateLeftTable"
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updateRightTable" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkRes:) name:@"updateRightTable"
     object:nil];
     /*int sections = [self.tableView numberOfSections];
     BOOL hasRows = NO;
@@ -51,8 +51,10 @@
 
 -(void)checkRes:(NSNotification *)notification
 {
-    if ([[notification name] isEqualToString:@"updateLeftTable"])
+    if ([[notification name] isEqualToString:@"updateRightTable"])
     {
+        film = [[[DBClient sharedInstance] selectFilmFavorite:NO] mutableCopy];
+        
         [self.tableView reloadData];
     }
 }

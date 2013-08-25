@@ -12,6 +12,7 @@
 #import "FilmCell.h"
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSMutableArray *film;

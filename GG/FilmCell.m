@@ -44,7 +44,7 @@
         self.film.favorite = [NSNumber numberWithBool:YES];
     }
     
-    if(![[DBClient sharedInstance] insertToDB:film])
+    if(![[DBClient sharedInstance] insertFavoriteToDB:film])
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Не удалось добавить фильм в избранное..." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alertView show];

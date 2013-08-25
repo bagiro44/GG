@@ -20,8 +20,11 @@
 
 - (NSMutableArray *) selectFilmFavorite:(BOOL)favorite;
 - (BOOL *) insertToDB:(Films *)Film;
+- (BOOL *) insertFavoriteToDB:(Films *)Film;
 - (Films *) addNewFilmWIthTitle:(NSString *)title;
 - (BOOL *) deleteFilm:(Films *)film;
 - (BOOL *) reloadData;
+- (BOOL *) refreshData;
+
 
 @end

@@ -15,9 +15,10 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property NSArray *film;
+@property NSMutableArray *film;
 @property Films *oneFilm;
 
 - (void) refreshData;
+
 
 @end
