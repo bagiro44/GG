@@ -2,7 +2,7 @@
 //  Films.m
 //  GG
 //
-//  Created by Dmitriy Remezov on 26.08.13.
+//  Created by Dmitriy Remezov on 24.08.13.
 //  Copyright (c) 2013 Dmitriy Remezov. All rights reserved.
 //
 
@@ -11,11 +11,10 @@
 
 @implementation Films
 
-@dynamic descriptionfilm;
-@dynamic favorite;
-@dynamic genre;
 @dynamic titile;
 @dynamic year;
-@dynamic image;
+@dynamic favorite;
+@dynamic genre;
+@dynamic descriptionfilm;
 
 @end

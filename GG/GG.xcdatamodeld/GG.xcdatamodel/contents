@@ -4,11 +4,10 @@
         <attribute name="descriptionfilm" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="titile" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Films" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Films" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

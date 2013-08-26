@@ -121,6 +121,9 @@
     }
 }
 
+- (IBAction)helpToApp:(id)sender {
+}
+
 - (void) refreshData
 {
     film = [[[DBClient sharedInstance] selectFilmFavorite:NO] mutableCopy];
