@@ -146,6 +146,9 @@
     self.editFilmImage.image = filmImage;
 }
 
+#pragma PickerView
+#pragma -
+
 - (IBAction)editGenre:(id)sender
 {
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:nil

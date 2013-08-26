@@ -68,12 +68,12 @@
     
     if ([oneFilm.favorite isEqual:[NSNumber numberWithBool:YES]])
     {
-        UIImage *favOnImage = [UIImage imageNamed:@"43-film-roll"];
+        UIImage *favOnImage = [UIImage imageNamed:@"yellowStar"];
         [cell.favButton setBackgroundImage:favOnImage forState:UIControlStateNormal];
         NSLog(@"%lu", (long)indexPath.row);
     }else
     {
-        UIImage *favOnImage = [UIImage imageNamed:@"28-star"];
+        UIImage *favOnImage = [UIImage imageNamed:@"greyStar"];
         [cell.favButton setBackgroundImage:favOnImage forState:UIControlStateNormal];
     }
     

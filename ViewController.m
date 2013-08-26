@@ -40,12 +40,7 @@
     for (int i = 0; i < sections; i++)
         hasRows = ([self.tableView numberOfRowsInSection:i] > 0) ? YES : NO;
     if (sections == 0 || hasRows == NO)
-    {
-        NSLog(@"empty");
-        UIImage *image = [UIImage imageNamed:@"Default"];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        [self.tableView addSubview:imageView];
-    }*/
+    {}*/
 
 }
 
@@ -75,12 +70,12 @@
     
     if ([oneFilm.favorite isEqual:[NSNumber numberWithBool:YES]])
     {
-        UIImage *favOnImage = [UIImage imageNamed:@"43-film-roll"];
+        UIImage *favOnImage = [UIImage imageNamed:@"yellowStar"];
         [cell.favButton setBackgroundImage:favOnImage forState:UIControlStateNormal];
         NSLog(@"%lu", (long)indexPath.row);
     }else
     {
-        UIImage *favOnImage = [UIImage imageNamed:@"28-star"];
+        UIImage *favOnImage = [UIImage imageNamed:@"greyStar"];
         [cell.favButton setBackgroundImage:favOnImage forState:UIControlStateNormal];
     }
     
@@ -124,6 +119,9 @@
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         }
     }
+}
+
+- (IBAction)helpToApp:(id)sender {
 }
 
 - (void) refreshData

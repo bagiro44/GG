@@ -8,7 +8,7 @@
         <scene sceneID="lwq-na-zH0">
             <objects>
                 <navigationController definesPresentationContext="YES" id="DjW-y6-9UE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Фильмы" image="43-film-roll.png" id="yrg-qR-HUm"/>
+                    <tabBarItem key="tabBarItem" title="Фильмы" image="film.png" id="yrg-qR-HUm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vhc-Zk-VGm">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -58,7 +58,7 @@
                                                     <rect key="frame" x="211" y="38" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal">
+                                                    <state key="normal" backgroundImage="greyStar.png">
                                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -340,7 +340,7 @@
                                                     <rect key="frame" x="211" y="38" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" backgroundImage="28-star.png">
+                                                    <state key="normal" backgroundImage="greyStar.png">
                                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -434,9 +434,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="28-star.png" width="26" height="26"/>
-        <image name="43-film-roll.png" width="26" height="22"/>
+        <image name="28-star.png" width="16" height="16"/>
         <image name="Default.png" width="320" height="480"/>
+        <image name="film.png" width="26" height="22"/>
+        <image name="greyStar.png" width="128" height="128"/>
     </resources>
     <classes>
         <class className="AddViewController" superclassName="UIViewController">
@@ -488,6 +489,8 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="helpToApp:"/>
+                <relationship kind="outlet" name="helpButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -498,8 +501,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mio-II-tt9"/>
-        <segue reference="pzI-FD-wcZ"/>
+        <segue reference="mE8-hS-LJc"/>
+        <segue reference="ndr-at-uGZ"/>
         <segue reference="BoW-Go-IEu"/>
     </inferredMetricsTieBreakers>
 </document>
