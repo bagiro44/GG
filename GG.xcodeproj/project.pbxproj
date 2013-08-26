@@ -11,6 +11,7 @@
 		7717D75F17CAE5FC0080A53B /* yellowStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7717D75D17CAE5FC0080A53B /* yellowStar.png */; };
 		7717D76117CAE6980080A53B /* film.png in Resources */ = {isa = PBXBuildFile; fileRef = 7717D76017CAE6980080A53B /* film.png */; };
 		7717D76517CAE80F0080A53B /* hel1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7717D76417CAE80F0080A53B /* hel1.png */; };
+		7717D76817CAEBA00080A53B /* Films.m in Sources */ = {isa = PBXBuildFile; fileRef = 7717D76717CAEBA00080A53B /* Films.m */; };
 		775E36A417C90A1900A51123 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E36A317C90A1900A51123 /* UIKit.framework */; };
 		775E36A617C90A1900A51123 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E36A517C90A1900A51123 /* Foundation.framework */; };
 		775E36A817C90A1900A51123 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775E36A717C90A1900A51123 /* CoreGraphics.framework */; };
@@ -22,7 +23,6 @@
 		775E36BA17C90A1900A51123 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 775E36B917C90A1900A51123 /* Default@2x.png */; };
 		775E36BC17C90A1900A51123 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 775E36BB17C90A1900A51123 /* Default-568h@2x.png */; };
 		775E36BF17C90A1900A51123 /* GG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 775E36BD17C90A1900A51123 /* GG.xcdatamodeld */; };
-		775E36C717C90A7F00A51123 /* Films.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E36C617C90A7F00A51123 /* Films.m */; };
 		775E36C917C90AA800A51123 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 775E36C817C90AA800A51123 /* Storyboard.storyboard */; };
 		775E36CF17C90CCD00A51123 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E36CE17C90CCD00A51123 /* ViewController.m */; };
 		775E36D217C90E0E00A51123 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 775E36D117C90E0E00A51123 /* FavViewController.m */; };
@@ -38,6 +38,8 @@
 		7717D75D17CAE5FC0080A53B /* yellowStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowStar.png; sourceTree = "<group>"; };
 		7717D76017CAE6980080A53B /* film.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = film.png; path = ../../../film.png; sourceTree = "<group>"; };
 		7717D76417CAE80F0080A53B /* hel1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hel1.png; sourceTree = "<group>"; };
+		7717D76617CAEBA00080A53B /* Films.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Films.h; sourceTree = "<group>"; };
+		7717D76717CAEBA00080A53B /* Films.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Films.m; sourceTree = "<group>"; };
 		775E36A017C90A1900A51123 /* GG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		775E36A317C90A1900A51123 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		775E36A517C90A1900A51123 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,8 +55,6 @@
 		775E36B917C90A1900A51123 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		775E36BB17C90A1900A51123 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		775E36BE17C90A1900A51123 /* GG.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GG.xcdatamodel; sourceTree = "<group>"; };
-		775E36C517C90A7F00A51123 /* Films.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Films.h; sourceTree = "<group>"; };
-		775E36C617C90A7F00A51123 /* Films.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Films.m; sourceTree = "<group>"; };
 		775E36C817C90AA800A51123 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		775E36CD17C90CCD00A51123 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
 		775E36CE17C90CCD00A51123 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 				775E36E317C93BD400A51123 /* EditController.h */,
 				775E36E417C93BD400A51123 /* EditController.m */,
 				775E36BD17C90A1900A51123 /* GG.xcdatamodeld */,
-				775E36C517C90A7F00A51123 /* Films.h */,
-				775E36C617C90A7F00A51123 /* Films.m */,
+				7717D76617CAEBA00080A53B /* Films.h */,
+				7717D76717CAEBA00080A53B /* Films.m */,
 				775E36D617C9199200A51123 /* FilmCell.h */,
 				775E36D717C9199200A51123 /* FilmCell.m */,
 				775E36D317C9123300A51123 /* DBClient.h */,
@@ -242,7 +242,6 @@
 				775E36B217C90A1900A51123 /* main.m in Sources */,
 				775E36B617C90A1900A51123 /* AppDelegate.m in Sources */,
 				775E36BF17C90A1900A51123 /* GG.xcdatamodeld in Sources */,
-				775E36C717C90A7F00A51123 /* Films.m in Sources */,
 				775E36CF17C90CCD00A51123 /* ViewController.m in Sources */,
 				775E36D217C90E0E00A51123 /* FavViewController.m in Sources */,
 				775E36D517C9123300A51123 /* DBClient.m in Sources */,
@@ -250,6 +249,7 @@
 				775E36DB17C91F1500A51123 /* DetailViewController.m in Sources */,
 				775E36DE17C9399400A51123 /* AddViewController.m in Sources */,
 				775E36E517C93BD500A51123 /* EditController.m in Sources */,
+				7717D76817CAEBA00080A53B /* Films.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

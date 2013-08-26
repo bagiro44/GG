@@ -144,6 +144,9 @@
     [self dismissModalViewControllerAnimated:YES];
     filmImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     self.editFilmImage.image = filmImage;
+    NSData *imageData = UIImagePNGRepresentation(filmImage);
+    film.image = imageData;
+    
 }
 
 #pragma PickerView
