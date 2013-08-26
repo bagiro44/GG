@@ -27,6 +27,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.genreNumber = 7;
+    self.genreArray = [[NSArray alloc] initWithObjects:@"18+", @"Аниме", @"Биография", @"Боевик", @"Вестерн", @"Военный", @"Детектив", @"Детский", @"Документальный", @"Драма", @"Игра", @"История", @"Комедия", @"Концерт", @"Короткометражка", @"Криминал", @"Мелодрама", @"Музыка", @"Мультфиль", @"Мюзикл", @"Новости", @"Приключения", @"Семейный", @"Спорт", @"Ток-шоу", @"Триллер", @"Ужасы", @"Фантастика", @"Фентези", @"ТВ", nil];
+    for (int i=0; i < [self.genreArray count]; i++)
+    {
+        if ([[self.genreArray objectAtIndex:i] isEqual:film.genre])
+        {
+            self.genreNumber = i;
+        }
+    }
     pickerController = [[UIImagePickerController alloc] init];
     pickerController.allowsImageEditing = NO;
     pickerController.delegate = self;
@@ -35,18 +44,14 @@
     (film.titile)?self.editTitle.text = film.titile:nil;
     (film.year)?self.editYear.text = film.year:nil;
     (film.descriptionfilm)?self.editDescription.text = film.descriptionfilm:nil;
-    (film.genre)?self.editGenre.text = film.genre:nil;
+    (film.genre)?self.genre.text = film.genre:nil;
     [self.editFilmImage setHidden:NO];
-}
-
-- (void) textFieldDidEndEditing:(UITextField *)textField
-{
-    [textField resignFirstResponder];
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -56,11 +61,37 @@
     {[self.editTitle resignFirstResponder];}
     else if ([self.editYear isFirstResponder] && [touch view] != self.editYear)
      {[self.editYear resignFirstResponder];}
-    else if ([self.editGenre isFirstResponder] && [touch view] != self.editGenre)
-    {[self.editGenre resignFirstResponder];}
     else if ([self.editDescription isFirstResponder] && [touch view] != self.editDescription)
     {[self.editDescription resignFirstResponder];}
     [super touchesBegan:touches withEvent:event];
+}
+
+- (void) textViewDidBeginEditing:(UITextView *)textView {
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y += -215;  /*specify the points to move the view up*/
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:-10];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
+- (void) textViewDidEndEditing:(UITextView *)textView
+{
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y += 215;   /*specify the points to move the view down*/
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:-10];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+    [textView resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,7 +122,7 @@
     //[segue.destinationViewController setFilmDetail:film];
     film.titile = self.editTitle.text;
     film.year = self.editYear.text;
-    film.genre = self.editGenre.text;
+    film.genre = self.genre.text;
     film.descriptionfilm = self.editDescription.text;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"updateDetail" object:self];
     if(![[DBClient sharedInstance] insertToDB:film])
@@ -113,6 +144,68 @@
     [self dismissModalViewControllerAnimated:YES];
     filmImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     self.editFilmImage.image = filmImage;
+}
+
+- (IBAction)editGenre:(id)sender
+{
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:nil
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    
+    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    
+    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
+    pickerView.showsSelectionIndicator = YES;
+    pickerView.dataSource = self;
+    pickerView.delegate = self;
+    [pickerView selectRow:self.genreNumber inComponent:0 animated:YES];
+    
+    [self.actionSheet addSubview:pickerView];
+    
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Close"]];
+    closeButton.momentary = YES;
+    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    closeButton.tintColor = [UIColor blackColor];
+    [closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
+    [self.actionSheet addSubview:closeButton];
+    
+    [self.actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+    
+    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+}
+
+-(void)dismissActionSheet:(UIButton *)sender
+{
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView
+     didSelectRow:(NSInteger)row
+      inComponent:(NSInteger)component
+{
+    self.genre.text = [self.genreArray objectAtIndex:row];
+    self.genreNumber = &(row);
+}
+
+
+- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [self.genreArray count];
+}
+
+- (NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [self.genreArray objectAtIndex:row];
 }
 
 @end
